@@ -6,7 +6,7 @@ use pocketmine\utils\Config;
 use pocketmine\level\Position;
 use pocketmine\math\Vector3;
 
-class gameData{
+class Mannager{
 
     public $players = [];
     public $spectators = [];

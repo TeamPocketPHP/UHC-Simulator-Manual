@@ -5,7 +5,7 @@ namespace TeamPocketPHP\game;
 use pocketmine\Server;
 use pocketmine\Player;
 
-class gameMannager{
+class game{
 	
 	private $owner;
 	
