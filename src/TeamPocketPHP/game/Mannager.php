@@ -17,14 +17,12 @@ class Mannager{
     public $maxPlayerCount = null;
     public $minPlayerCount = null;
 
-	public $taskid = null;
+	  public $taskid = null;
 	
     public function __construct(Main $main, $game){
-       $this->plugin = $main;
-		
-		$this->game = $game;
-        $files = $this->getPath();
-		$this->data = yaml_parse_file($files);
+      $this->plugin = $main;
+      $this->game = $game;
+      $this->data = yaml_parse_file($this->getPath());
     }
 	
 	public function getPath() : string{
@@ -73,11 +71,17 @@ class Mannager{
 		}
 	}
 	
-    public function addPlayer($sender){
+  public function addPlayer($sender){
 		array_push($this->players, $sender);
 		//$this->plugin->kit->getkit($sender);
 	}
-	
+  
+  public function removePlayer($sender){
+    if($this->isPlaying($sender)){
+      unset($this->players[array_search($sender, $this->players)]);
+    }
+  }
+  
 	public function startTask(){
 	}
 	
@@ -85,10 +89,6 @@ class Mannager{
 	}
 	
 	public function stopGame(){
-	}
-	
-	public function removePlayer($sender){
-		
 	}
 	
 	public function arrayCount(){
